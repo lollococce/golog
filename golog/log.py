@@ -1,6 +1,6 @@
 """
-golog logging
--------------
+golog log
+---------
 This script contains
 basic functions for logging
 

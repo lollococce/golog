@@ -1,16 +1,18 @@
 """
-golog logging
--------------
+golog decorators
+----------------
 This script contains
-basic structure funcs for pysuperbolt
+some useful decorators
 
 Date: 2019-01-29
 
 Author: Lorenzo Coacci
 """
+# + + + + + Libraries + + + + +
 import functools
 import time
 import warnings
+# + + + + + Libraries + + + + +
 
 # + + + + + Decorators + + + + +
 # {'status': Tru/False, 'error': ''/'Your Error',

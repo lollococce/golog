@@ -1,4 +1,0 @@
-termcolor
-progressbar
-twilio
-slackclient

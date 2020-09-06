@@ -1,6 +1,6 @@
 # import submodules you want to install
 
-from .logging import *
+from .log import *
 from .tools import *
 from .alerts import *
 

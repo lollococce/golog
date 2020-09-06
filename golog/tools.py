@@ -11,7 +11,7 @@ Author: Lorenzo Coacci
 """
 # + + + + + Libraries + + + + +
 # import decoratos
-from .logging import *
+from .log import *
 # + + + + + Libraries + + + + +
 
 
