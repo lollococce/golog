@@ -10,7 +10,7 @@ Author: Lorenzo Coacci
 """
 # + + + + + Libraries + + + + +
 # import basic
-#from .log import *
+from .log import *
 # to manage slack API
 from slack import WebClient
 # to manage Twilio API (SMS)
@@ -151,7 +151,7 @@ def send_process(
     slack_to=None, email_to=None,
     sms_to=None, txt_file_to=None,
     csv_file_to=None, file_to_s3=False,
-    show_debug=True, color=WHITE,
+    show_debug=True, color=None,
     slack_client=None,
     twilio_client=None
 ):
@@ -160,6 +160,8 @@ def send_process(
     # make sure everything is clean
     if this_file_name is None:
         this_file_name = ""
+    if color is None:
+        color = WHITE
     msg, label, this_file_name = str(msg), str(label), str(this_file_name)
     # clean list
     if slack_to is not None:
