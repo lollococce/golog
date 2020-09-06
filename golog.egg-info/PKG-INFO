@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: golog
+Version: 0.3
+Summary: The package contains some useful general functions for logging, and more.
+Home-page: https://github.com/lollococce/golog
+Author: Lorenzo Coacci
+Author-email: lorenzo@coacci.it
+License: MIT
+Description: # Welcome!
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Description-Content-Type: text/markdown

@@ -2,7 +2,6 @@
 
 from .logging import *
 from .tools import *
-from .alerts import *
 
 
 __docformat__ = "restructuredtext"
