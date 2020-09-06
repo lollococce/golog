@@ -12,6 +12,7 @@ Author: Lorenzo Coacci
 import functools
 import time
 import warnings
+import traceback
 # + + + + + Libraries + + + + +
 
 # + + + + + Decorators + + + + +
@@ -40,8 +41,7 @@ def sev(func):
                 except Exception as e:
                     result = {"status": True, "error": "", "value": output}
         except Exception as e:
-            print("SEV Function {} failed".format(func.__name__),
-                        num_of_new_lines=1, exception=e)
+            print("SEV Function {} failed".format(func.__name__))
             addendum = ", EXCEPTION -> {}, TRACEBACK -> {}".format(str(e), str(traceback.format_exc()))
             result = {"status": False, "error": "Reliable Function failed" + addendum, "value": None}
         return result
@@ -64,8 +64,7 @@ def se(func):
             except Exception as e:
                 result = {"status": True, "error": ""}
         except Exception as e:
-            print("SE Function {} failed".format(func.__name__),
-                        num_of_new_lines=1, exception=e)
+            print("SE Function {} failed".format(func.__name__))
             addendum = ", EXCEPTION -> {}, TRACEBACK -> {}".format(str(e), str(traceback.format_exc()))
             result = {"status": False, "error": "Reliable Function failed" + addendum}
         return result
@@ -79,8 +78,7 @@ def nocrash_return(func):
         try:
             result = func(*args, **kwargs)
         except Exception as e:
-            print("No Crash (Return) Function {} failed".format(func.__name__),
-                        num_of_new_lines=1, exception=e)
+            print("No Crash (Return) Function {} failed".format(func.__name__))
             result = None
         return result
     return f
@@ -93,8 +91,7 @@ def nocrash_void(func):
         try:
             func(*args, **kwargs)
         except Exception as e:
-            print("No Crash (Void) Function {} failed".format(func.__name__),
-                        num_of_new_lines=1, exception=e)
+            print("No Crash (Void) Function {} failed".format(func.__name__))
     return f
 
 

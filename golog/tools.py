@@ -72,10 +72,13 @@ def dict_stringify(dict_to_prepare):
 
 # + + + + + TOOLS + + + + +
 @nocrash_return
-def correct_filepath(string):
+def correct_filepath(string, slash_remove=False):
     """RETURN : The file path with '/' at the end
-    if the developer/user forgot it"""
-    string = string + '/' if string[-1] != '/' else string
+    if the developer/user forgot it or viceversa"""
+    if slash_remove:
+        string = str(string) + '/' if string[-1] != '/' else str(string)[:-1]
+    else:
+        string = str(string) + '/' if string[-1] != '/' else string
     return string
 
 
