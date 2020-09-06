@@ -64,20 +64,19 @@ class Slack:
                 "error": err_msg
             }
     
-        try:
-            self.slack_client.api_call(
-                "chat.postMessage",
-                json={
-                    "channel": str(slack_channel),
-                    "text": str(message),
-                    "username": str(username)
-                }
+        self.slack_client.api_call(
+            "chat.postMessage",
+            json={
+                "channel": str(slack_channel),
+                "text": str(message),
+                "username": str(username)
+            }
+        )
+        if self.show_debug:
+            success_print(
+                "Slack message sent in channel/user " \
+                f"{str(slack_channel)} with username {username}"
             )
-            if self.show_debug:
-                success_print(
-                    "Slack message sent in channel/user " \
-                    f"{str(slack_channel)} with username {username}"
-                )
 # + + + + + SLACK + + + + +
 
 # + + + + + SMS + + + + +
