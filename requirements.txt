@@ -1,5 +1,5 @@
 termcolor
-progressbar2
+alive_progress
 twilio
 slackclient
 validators

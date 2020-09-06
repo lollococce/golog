@@ -15,7 +15,7 @@ from .log import *
 # to count occurences
 from collections import Counter
 # to create progress bars
-import progressbar
+from alive_progress import alive_bar
 # to manage validators
 import validators
 # + + + + + Libraries + + + + +

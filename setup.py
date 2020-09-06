@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="golog",
-    version="0.4.3",
+    version="0.4.4",
     author="Lorenzo Coacci",
     author_email="lorenzo@coacci.it",
     description="The package contains some useful general functions for logging, and more.",
@@ -18,7 +18,7 @@ setuptools.setup(
     include_package_data=True,
     install_requires=[
        'termcolor',
-       'progressbar2',
+       'alive_progress',
        'twilio',
        'slackclient',
        'validators'
