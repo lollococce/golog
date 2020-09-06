@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="golog",
-    version="0.3.8",
+    version="0.3.9",
     author="Lorenzo Coacci",
     author_email="lorenzo@coacci.it",
     description="The package contains some useful general functions for logging, and more.",
