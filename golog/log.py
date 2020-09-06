@@ -15,8 +15,6 @@ import os
 from .decorators import *
 # to manage datetime, date, timedelta
 from datetime import datetime, date, timedelta, timezone
-# to manage traceback
-import traceback
 # - - optional packages - -
 try:
     # to manage jsons
@@ -25,12 +23,6 @@ try:
     from termcolor import colored as col
     # to hide passwords
     import getpass
-    # to count occurences
-    from collections import Counter
-    # to create progress bars
-    from progressbar import progressbar
-    # to manage validators
-    import validators
 except ImportError as exc:
     print(
         "Couldn't import some packages for logging." \
