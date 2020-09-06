@@ -12,7 +12,7 @@ Author: Lorenzo Coacci
 # to manage os
 import os
 # import decoratos
-from decorators import *
+from .decorators import *
 # to manage datetime, date, timedelta
 from datetime import datetime, date, timedelta, timezone
 # to manage traceback
