@@ -20,63 +20,7 @@ from twilio.rest import Client
 
 # + + + + + Functions + + + + +
 # + + + + + SLACK + + + + +
-class Slack:
-    def __init__(
-        self,
-        slack_api_token,
-        show_debug=False
-    ):
-        # Initialize the slack client
-        self.slack_api_token = slack_api_token
-        slack_client = WebClient(self.slack_api_token)
-        self.show_debug = show_debug
 
-
-    def send_slack(
-        self,
-        slack_channel,
-        username, message,
-        show_debug=True
-    ):
-        """
-        RETURN : {"status": True/False, "error": error_msg},
-                 send a slack message
-    
-        Parameters
-        ----------
-        slack_channel : string
-            The slack channel/user ID
-        message : string
-            The slack message
-        username : string
-            The username to show when writing the message
-    
-        Returns
-        -------
-        result : {"status": True/False, "error": error_msg}
-        """
-        if self.slack_client is None:
-            err_msg = "slack_client cannot be None and must" \
-                      "be specified if you did not input the slack_client"
-            error_print(err_msg)
-            return {
-                "status": False,
-                "error": err_msg
-            }
-    
-        self.slack_client.api_call(
-            "chat.postMessage",
-            json={
-                "channel": str(slack_channel),
-                "text": str(message),
-                "username": str(username)
-            }
-        )
-        if self.show_debug:
-            success_print(
-                "Slack message sent in channel/user " \
-                f"{str(slack_channel)} with username {username}"
-            )
 # + + + + + SLACK + + + + +
 
 # + + + + + SMS + + + + +
@@ -100,6 +44,7 @@ class Twilio:
         self.show_debug = show_debug
     
 
+    @se
     def send_sms(self, message, send_to, from_tel=None):
         """
         RETURN : {"status": True/False, "error": error_msg},
