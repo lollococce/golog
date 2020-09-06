@@ -1,3 +1,3 @@
-from golog import *
+from .log import *
 
 error_print("culo")
