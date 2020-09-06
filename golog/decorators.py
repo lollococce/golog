@@ -40,9 +40,9 @@ def sev(func):
                         result = {"status": True, "error": "", "value": output}
                 except Exception as e:
                     result = {"status": True, "error": "", "value": output}
-        except Exception as e:
-            print("SEV Function {} failed".format(func.__name__))
-            addendum = ", EXCEPTION -> {}, TRACEBACK -> {}".format(str(e), str(traceback.format_exc()))
+        except Exception as exc:
+            print("SEV Function {} failed".format(func.__name__) + f" {str(exc)}")
+            addendum = ", EXCEPTION -> {}, TRACEBACK -> {}".format(str(exc), str(traceback.format_exc()))
             result = {"status": False, "error": "Reliable Function failed" + addendum, "value": None}
         return result
     return f
@@ -63,9 +63,9 @@ def se(func):
                     result = {"status": True, "error": ""}
             except Exception as e:
                 result = {"status": True, "error": ""}
-        except Exception as e:
-            print("SE Function {} failed".format(func.__name__))
-            addendum = ", EXCEPTION -> {}, TRACEBACK -> {}".format(str(e), str(traceback.format_exc()))
+        except Exception as exc:
+            print("SE Function {} failed".format(func.__name__) + f" {str(exc)}")
+            addendum = ", EXCEPTION -> {}, TRACEBACK -> {}".format(str(exc), str(traceback.format_exc()))
             result = {"status": False, "error": "Reliable Function failed" + addendum}
         return result
     return f
@@ -77,8 +77,8 @@ def nocrash_return(func):
     def f(*args, **kwargs):
         try:
             result = func(*args, **kwargs)
-        except Exception as e:
-            print("No Crash (Return) Function {} failed".format(func.__name__))
+        except Exception as exc:
+            print("No Crash (Return) Function {} failed".format(func.__name__) + f" {str(exc)}")
             result = None
         return result
     return f
@@ -90,8 +90,8 @@ def nocrash_void(func):
     def f(*args, **kwargs):
         try:
             func(*args, **kwargs)
-        except Exception as e:
-            print("No Crash (Void) Function {} failed".format(func.__name__))
+        except Exception as exc:
+            print("No Crash (Void) Function {} failed".format(func.__name__) + f" {str(exc)}")
     return f
 
 
