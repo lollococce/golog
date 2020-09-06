@@ -18,7 +18,6 @@ setuptools.setup(
     include_package_data=True,
     install_requires=[
        'termcolor',
-       'traceback',
        'progressbar'
     ],
     classifiers=[

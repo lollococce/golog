@@ -1,6 +1,8 @@
 # import submodules you want to install
 
 from .logging import *
+from .tools import *
+
 
 __docformat__ = "restructuredtext"
 

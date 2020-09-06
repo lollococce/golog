@@ -1,3 +1,13 @@
+"""
+golog logging
+-------------
+This script contains
+basic structure funcs for pysuperbolt
+
+Date: 2019-01-29
+
+Author: Lorenzo Coacci
+"""
 import functools
 import time
 import warnings
