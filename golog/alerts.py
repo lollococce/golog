@@ -297,7 +297,7 @@ def send_process(
 
 
 # + + + + + ERROR PROCESSES + + + + +
-def error_process(
+def error(
     msg, this_file_name=None,
     exception=None,
     slack_to=None, email_to=None, sms_to=None,
@@ -319,7 +319,7 @@ def error_process(
 
 
 # + + + + + ERROR PROCESSES + + + + +
-def critical_process(
+def critical(
     msg, this_file_name=None, exception=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
@@ -340,7 +340,7 @@ def critical_process(
 
 
 # + + + + + SUCCESS PROCESSES + + + + +
-def success_process(
+def success(
     msg, this_file_name=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
@@ -360,7 +360,7 @@ def success_process(
 
 
 # + + + + + INFO PROCESSES + + + + +
-def info_process(
+def info(
     msg, this_file_name=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
@@ -380,7 +380,7 @@ def info_process(
 
 
 # + + + + + DEBUG PROCESSES + + + + +
-def debug_process(
+def debug(
     msg, this_file_name=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
