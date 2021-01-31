@@ -50,6 +50,38 @@ def to_set(object):
     return set(object)
 # - - TO CAST [NO CRASH] - -
 
+# - - VALIDATE TYPES - -
+def is_int(object):
+    """RETURN : True/False """
+    return isinstance(int, object)
+
+def is_str(object):
+    """RETURN : True/False """
+    return isinstance(str, object)
+
+def is_list(object):
+    """RETURN : True/False """
+    return isinstance(list, object)
+
+def is_dict(object):
+    """RETURN : True/False """
+    return isinstance(dict, object)
+
+def is_url(object):
+    """RETURN : True/False """
+    if is_str(object):
+        pass
+    else:
+        if to_str(object) is None:
+            return False
+        else:
+            object = to_str(object)
+    if validators.url(object):
+        return True
+    else:
+        return False
+# - - VALIDATE TYPES - -
+
 # - - ENCODE/DECODE - -
 @nocrash_return
 def decode_length_delta(length, delta, as_str=True):
@@ -244,4 +276,3 @@ def process(
         return {"status": status, "error":   errors, "value": values}
 # + + + + + PROCESSES/CHAINS + + + + +
 # + + + + + Functions + + + + +
-
