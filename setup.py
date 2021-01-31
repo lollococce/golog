@@ -1,28 +1,34 @@
-import setuptools
+# -*- coding: utf-8 -*-
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+from setuptools import setup, find_packages
 
-setuptools.setup(
+with open('README.md') as f:
+    readme = f.read()
+
+with open('LICENSE') as f:
+    license = f.read()
+
+setup(
     name="golog",
     version="0.4.7",
     author="Lorenzo Coacci",
     author_email="lorenzo@coacci.it",
-    description="The package contains some useful general functions for logging, and more.",
-    long_description=long_description,
+    description="The package contains some useful general functions for logging, monitoring and more.",
+    long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/lollococce/golog",
-    packages=setuptools.find_packages(),
     keywords='',
-    license='MIT',
+    license=license,
     include_package_data=True,
     install_requires=[
-       'termcolor',
-       'alive_progress',
-       'twilio',
-       'slackclient',
-       'validators'
+        'sphinx',
+        'termcolor',
+        'alive_progress',
+        'twilio',
+        'slackclient',
+        'validators'
     ],
+    packages=find_packages(exclude=('tests', 'docs')),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

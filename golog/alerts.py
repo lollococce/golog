@@ -18,7 +18,7 @@ from twilio.rest import Client
 # + + + + + Libraries + + + + +
 
 
-# + + + + + Functions + + + + +
+# + + + + + Classes + + + + +
 # + + + + + SLACK + + + + +
 class Slack:
     def __init__(
@@ -142,8 +142,10 @@ class Twilio:
                 f"{str(message.sid)}, from {str(from_tel)} to {str(send_to)}"
             )
 # + + + + + SMS + + + + +
+# + + + + + Classes + + + + +
 
 
+# + + + + + Functions + + + + +
 # + + + + + SEND PROCESSES + + + + +
 def send_process(
     msg, label, this_file_name=None,
@@ -179,8 +181,6 @@ def send_process(
     if csv_file_to is not None:
         csv_file_to = str(csv_file_to)
         csv_file_to = csv_file_to if csv_file_to[-1] == '/' else csv_file_to + '/'
-    # fix path
-
     try:
         if show_debug:
             pass
@@ -302,19 +302,21 @@ def error(
     exception=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
-    show_debug=True, color=RED
+    show_debug=True, color=RED, label="* * * ERROR * * *:"
 ):
     """VOID it executes the error standard process"""
-    send_process(msg=msg, this_file_name=this_file_name,
-                 label="* * * ERROR * * *:",
-                 exception=exception,
-                 slack_to=slack_to,
-                 email_to=email_to,
-                 sms_to=sms_to,
-                 txt_file_to=txt_file_to, csv_file_to=csv_file_to,
-                 file_to_s3=file_to_s3,
-                 show_debug=show_debug,
-                 color=color)
+    send_process(
+        msg=msg, this_file_name=this_file_name,
+        label=label,
+        exception=exception,
+        slack_to=slack_to,
+        email_to=email_to,
+        sms_to=sms_to,
+        txt_file_to=txt_file_to, csv_file_to=csv_file_to,
+        file_to_s3=file_to_s3,
+        show_debug=show_debug,
+        color=color
+    )
 # + + + + + ERROR PROCESSES + + + + +
 
 
@@ -323,19 +325,21 @@ def critical(
     msg, this_file_name=None, exception=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
-    show_debug=True, color=RED
+    show_debug=True, color=RED, label="! ! ! ! ! CRITICAL ERROR ! ! ! ! !:"
 ):
     """VOID it executes the error standard process"""
-    send_process(msg=msg, this_file_name=this_file_name,
-                 label="! ! ! ! ! CRITICAL ERROR ! ! ! ! !:",
-                 exception=exception,
-                 slack_to=slack_to,
-                 email_to=email_to,
-                 sms_to=sms_to,
-                 txt_file_to=txt_file_to, csv_file_to=csv_file_to,
-                 file_to_s3=file_to_s3,
-                 show_debug=show_debug,
-                 color=color)
+    send_process(
+        msg=msg, this_file_name=this_file_name,
+        label=label,
+        exception=exception,
+        slack_to=slack_to,
+        email_to=email_to,
+        sms_to=sms_to,
+        txt_file_to=txt_file_to, csv_file_to=csv_file_to,
+        file_to_s3=file_to_s3,
+        show_debug=show_debug,
+        color=color
+    )
 # + + + + + ERROR PROCESSES + + + + +
 
 
@@ -344,18 +348,20 @@ def success(
     msg, this_file_name=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
-    show_debug=True, color=GREEN
+    show_debug=True, color=GREEN, label="SUCCESS:"
 ):
     """VOID it executes the success standard process"""
-    send_process(msg=msg, this_file_name=this_file_name,
-                 label="SUCCESS:",
-                 slack_to=slack_to,
-                 email_to=email_to,
-                 sms_to=sms_to,
-                 txt_file_to=txt_file_to, csv_file_to=csv_file_to,
-                 file_to_s3=file_to_s3,
-                 show_debug=show_debug,
-                 color=color)
+    send_process(
+        msg=msg, this_file_name=this_file_name,
+        label=label,
+        slack_to=slack_to,
+        email_to=email_to,
+        sms_to=sms_to,
+        txt_file_to=txt_file_to, csv_file_to=csv_file_to,
+        file_to_s3=file_to_s3,
+        show_debug=show_debug,
+        color=color
+    )
 # + + + + + SUCCESS PROCESSES + + + + +
 
 
@@ -364,18 +370,20 @@ def info(
     msg, this_file_name=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
-    show_debug=True, color=WHITE
+    show_debug=True, color=WHITE, label="INFO:"
 ):
     """VOID it executes the info standard process"""
-    send_process(msg=msg, this_file_name=this_file_name,
-                 label="INFO:",
-                 slack_to=slack_to,
-                 email_to=email_to,
-                 sms_to=sms_to,
-                 txt_file_to=txt_file_to, csv_file_to=csv_file_to,
-                 file_to_s3=file_to_s3,
-                 show_debug=show_debug,
-                 color=color)
+    send_process(
+        msg=msg, this_file_name=this_file_name,
+        label=label,
+        slack_to=slack_to,
+        email_to=email_to,
+        sms_to=sms_to,
+        txt_file_to=txt_file_to, csv_file_to=csv_file_to,
+        file_to_s3=file_to_s3,
+        show_debug=show_debug,
+        color=color
+    )
 # + + + + + INFO PROCESSES + + + + +
 
 
@@ -384,18 +392,20 @@ def debug(
     msg, this_file_name=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
-    show_debug=True, color=WHITE
+    show_debug=True, color=WHITE, label="DEBUG:"
 ):
     """VOID it executes the info standard process"""
-    send_process(msg=msg, this_file_name=this_file_name,
-                 label="DEBUG:",
-                 slack_to=slack_to,
-                 email_to=email_to,
-                 sms_to=sms_to,
-                 txt_file_to=txt_file_to, csv_file_to=csv_file_to,
-                 file_to_s3=file_to_s3,
-                 show_debug=show_debug,
-                 color=color)
+    send_process(
+        msg=msg, this_file_name=this_file_name,
+        label=label,
+        slack_to=slack_to,
+        email_to=email_to,
+        sms_to=sms_to,
+        txt_file_to=txt_file_to, csv_file_to=csv_file_to,
+        file_to_s3=file_to_s3,
+        show_debug=show_debug,
+        color=color
+    )
 # + + + + + DEBUG PROCESSES + + + + +
 
 
@@ -404,18 +414,20 @@ def warning(
     msg, this_file_name=None, exception=None,
     slack_to=None, email_to=None, sms_to=None,
     txt_file_to=None, csv_file_to=None, file_to_s3=False,
-    show_debug=True, color=YELLOW
+    show_debug=True, color=YELLOW, label="* WARNING *:"
 ):
     """VOID it executes the info standard process"""
-    send_process(msg=msg, this_file_name=this_file_name,
-                 label="* WARNING *:",
-                 exception=exception,
-                 slack_to=slack_to,
-                 email_to=email_to,
-                 sms_to=sms_to,
-                 txt_file_to=txt_file_to, csv_file_to=csv_file_to,
-                 file_to_s3=file_to_s3,
-                 show_debug=show_debug,
-                 color=color)
+    send_process(
+        msg=msg, this_file_name=this_file_name,
+        label=label,
+        exception=exception,
+        slack_to=slack_to,
+        email_to=email_to,
+        sms_to=sms_to,
+        txt_file_to=txt_file_to, csv_file_to=csv_file_to,
+        file_to_s3=file_to_s3,
+        show_debug=show_debug,
+        color=color
+    )
 # + + + + + WARNING PROCESSES + + + + +
 # + + + + + Functions + + + + +

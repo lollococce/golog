@@ -29,12 +29,10 @@ def to_int(object):
     """RETURN : None if unable to convert to int or int"""
     return int(object)
 
-
 @nocrash_return
 def to_str(object):
     """RETURN : None if unable to convert to str or str"""
     return str(object)
-
 
 @nocrash_return
 def to_list(object):
