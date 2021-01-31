@@ -26,18 +26,28 @@ import validators
 # - - TO CAST [NO CRASH] - -
 @nocrash_return
 def to_int(object):
-    """RETURN : None if unable to convert to int or int"""
+    """RETURN : None if unable to convert to int"""
     return int(object)
 
 @nocrash_return
 def to_str(object):
-    """RETURN : None if unable to convert to str or str"""
+    """RETURN : None if unable to convert to str"""
     return str(object)
 
 @nocrash_return
 def to_list(object):
-    """RETURN : None if unable to convert to int or int"""
+    """RETURN : None if unable to convert to list"""
     return list(object)
+
+@nocrash_return
+def to_dict(object):
+    """RETURN : None if unable to convert to dict"""
+    return dict(object)
+
+@nocrash_return
+def to_set(object):
+    """RETURN : None if unable to convert to set"""
+    return set(object)
 # - - TO CAST [NO CRASH] - -
 
 # - - ENCODE/DECODE - -
@@ -116,62 +126,6 @@ def frequency_elements(list_input):
     """RETURN : a dict with occurences of elements"""
     c = Counter(list_input)
     return c
-
-
-@nocrash_void
-def insert_cronjob(
-    cronjob_section,
-    cronjob_string,
-    cronjob_filepath,
-    where="END"
-):
-    """VOID : Insert a cronjob"""
-    with open(cronjob_filepath, 'r') as f:
-        content = f.read()
-    
-    # replace and insert new cronjob
-    content = content.replace(f'# - - - {where} {cronjob_section} - - -', f'{cronjob_string}\n# - - - {where} {cronjob_section} - - -')
-
-    # write new crontab file
-    with open(cronjob_filepath, 'w') as f:
-        f.write(content)
-    
-    success_print("Cronjob inserted")
-
-@nocrash_void
-def remove_cronjob(
-    cronjob_string,
-    cronjob_filepath='/home/ec2-user/cronjobs/crontab_config'
-):
-    """VOID : Remove a cronjob"""
-    with open(cronjob_filepath, 'r') as f:
-        content = f.read()
-    
-    # replace and insert new cronjob
-    content = content.replace(f'{cronjob_string}\n', '')
-
-    # write new crontab file
-    with open(cronjob_filepath, 'w') as f:
-        f.write(content)
-    
-    success_print("Cronjob removed")
-
-@nocrash_return
-def get_cronjobs(
-    cronjob_section,
-    cronjob_filepath='/home/ec2-user/cronjobs/crontab_config'
-):
-    """VOID : Get all cronjobs under a section"""
-    with open(cronjob_filepath, 'r') as f:
-        content = f.read()
-    
-    # split based on START
-    content = content.split(f'# - - - START {cronjob_section} - - -')[1]
-    content = content.split(f'# - - - END {cronjob_section} - - -')[0]
-    content = content.split('\n')
-    content = [cron for cron in content if cron != '']
-
-    return content
 # + + + + + TOOLS + + + + +
 
 

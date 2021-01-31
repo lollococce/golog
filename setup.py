@@ -10,17 +10,21 @@ with open('LICENSE') as f:
 
 setup(
     name="golog",
-    version="0.4.7",
+    version="0.4.8",
     author="Lorenzo Coacci",
     author_email="lorenzo@coacci.it",
     description="The package contains some useful general functions for logging, monitoring and more.",
     long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/lollococce/golog",
-    keywords='',
+    keywords=['logging', 'monitoring', 'alerts'],
     license=license,
     include_package_data=True,
     install_requires=[
+        'sphinx',
+        'pytest',
+        'twine',
+        'sphinx_rtd_theme',
         'sphinx',
         'termcolor',
         'alive_progress',

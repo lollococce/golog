@@ -1,5 +1,7 @@
 sphinx
 pytest
+wheel
+sphinx_rtd_theme
 termcolor
 alive_progress
 twilio
