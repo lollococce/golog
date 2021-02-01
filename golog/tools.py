@@ -53,19 +53,19 @@ def to_set(object):
 # - - VALIDATE TYPES - -
 def is_int(object):
     """RETURN : True/False """
-    return isinstance(int, object)
+    return isinstance(object, int)
 
 def is_str(object):
     """RETURN : True/False """
-    return isinstance(str, object)
+    return isinstance(object, str)
 
 def is_list(object):
     """RETURN : True/False """
-    return isinstance(list, object)
+    return isinstance(object, list)
 
 def is_dict(object):
     """RETURN : True/False """
-    return isinstance(dict, object)
+    return isinstance(object, dict)
 
 def is_url(object):
     """RETURN : True/False """
