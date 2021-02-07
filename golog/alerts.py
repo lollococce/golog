@@ -15,7 +15,8 @@ from .log import (
     error_print,
     RED,
     YELLOW,
-    WHITE
+    WHITE,
+    GREEN
 )
 # to manage slack API
 from slack import WebClient
