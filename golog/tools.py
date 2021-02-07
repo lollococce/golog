@@ -14,7 +14,8 @@ Author: Lorenzo Coacci
 from .log import (
     warning_print,
     nocrash_return,
-    sev
+    sev,
+    os
 )
 # to count occurences
 from collections import Counter
