@@ -507,6 +507,19 @@ def ask_input_int(
         else:
             return None
 
+@nocrash_return
+def ask_password(
+    password_label=None,
+    color=None
+):
+    """RETURN : The password string"""
+    if password_label is None:
+        password_label = " PASSWORD : "
+    try:
+        password = getpass.getpass(col("\t{}:  ".format(str(password)), color))
+    except Exception:
+        password = getpass.getpass("\t{}:  ".format(str(password_label)))
+    return password
 
 @nocrash_return
 def ask_input_login(
