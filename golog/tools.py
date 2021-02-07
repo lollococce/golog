@@ -11,7 +11,9 @@ Author: Lorenzo Coacci
 """
 # + + + + + Libraries + + + + +
 # import decoratos
-from .log import *
+from .log import (
+    warning_print
+)
 # to count occurences
 from collections import Counter
 # to create progress bars
@@ -190,89 +192,5 @@ def perform(function, *args, show_debug=True):
     action = function(*args, **kwargs)
     # return
     return action
-
-
-def process(
-    instructions, interrupt=True,
-    wait_time=0.5,
-    show_debug=True
-):
-    """
-    RETURN :  {"status": True/False dict, "error": error_msg dict, "value": value dict},
-               perform a function
-
-    Parameters
-    ----------
-    instructions : a list (of dicts)
-        The list of dicts to execute
-    interrupt : bool
-        If error is present then interrupt process
-    show_debug : bool
-        Show debug info?
-    wait_time : float
-        The wait time between 2 actions
-
-    Returns
-    -------
-    result :  {"status": True/False dict, "error": error_msg dict, "value": value dict}
-    """
-    try:
-        # prepare status, errors, values dicts
-        status, errors, values = {}, {}, {}
-        iteration = 1
-        new_line()
-        bar = progress_bar(steps=len(instructions))
-        time_init = 0
-        # iterate on instrctions
-        for instruction in instructions:
-            # wait
-            time.sleep(wait_time)
-            if show_debug:
-                label_print(
-                    "\n- - - - EXECUTE {}/{}: '{}', function -> {} - - - -\n".format(str(iteration), str(len(instructions)), str(instruction["name"]), instruction["function"].__name__),
-                    label="",
-                    color=MAGENTA,
-                    num_of_new_lines=1
-                )
-                time_step = "NA" if time_init == 0 else time.time() - time_init
-                remaining_time = "NA" if time_step == "NA" else round((len(instructions) - iteration)*time_step, 3)
-                min_remaining = "NA" if time_step == "NA" else round(remaining_time/60, 3)
-                hour_remaining = "NA" if time_step == "NA" else round(min_remaining/60, 3)
-                bar.next()
-                new_line()
-                info_print("Remaining time : {} sec / {} mins / {} hours\n".format(str(remaining_time), str(min_remaining), str(hour_remaining)), timestamp=False, color=BLUE)
-            # perform function
-            action = perform(instruction["function"], instruction["kwargs"], instruction["args"], show_debug=show_debug)
-            # collect info
-            status[iteration], errors[iteration], values[iteration] = (
-                (instruction["name"], action["status"]),
-                (instruction["name"], action["error"]),
-                (instruction["name"], action["value"])
-            )
-            if action["status"]:
-                pass
-            else:
-                if interrupt:
-                    if show_debug:
-                        error_print("Error in process {}/{} function chain '{}' -> ".format(str(iteration), str(len(instructions)), str(instruction["name"])) + action["error"])
-                        warning_print("Interrupting process because interrupt=True...")
-                    return {"status": status, "error":  errors, "value": values}
-                else:
-                    pass
-            # end
-            iteration += 1
-            # time init
-            time_init = time.time()
-            if show_debug:
-                print_color("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n", color=MAGENTA)
-
-        bar.finish()
-        if show_debug:
-            success_print("Congrats, process run successfully!")
-        return {"status": status, "error":   errors, "value": values}
-    except (Exception, KeyboardInterrupt) as e:
-        if show_debug:
-            warning_print("Error during process!", exception=e)
-        return {"status": status, "error":   errors, "value": values}
 # + + + + + PROCESSES/CHAINS + + + + +
 # + + + + + Functions + + + + +

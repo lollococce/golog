@@ -10,7 +10,10 @@ Author: Lorenzo Coacci
 """
 # + + + + + Libraries + + + + +
 # import basic
-from .log import *
+from .log import (
+    warning_print,
+    error_print
+)
 # to manage slack API
 from slack import WebClient
 # to manage Twilio API (SMS)

@@ -12,9 +12,21 @@ Author: Lorenzo Coacci
 # to manage os
 import os
 # import decoratos
-from .decorators import *
+from .decorators import (
+    se,
+    sev,
+    nocrash_return,
+    nocrash_void,
+    deprecated,
+    timer
+)
 # to manage datetime, date, timedelta
-from datetime import datetime, date, timedelta, timezone
+from datetime import (
+    datetime,
+    date,
+    timedelta,
+    timezone
+)
 # - - optional packages - -
 try:
     # to manage jsons

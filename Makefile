@@ -10,3 +10,6 @@ publish:
 
 push:
 	git add . && git commit -m "update" && git push origin master
+
+ship:
+	git add . && git commit -m "update" && git push origin master && rm -rf dist/* && rm -rf golog.egg-info/* && python3 setup.py sdist && twine upload --skip-existing dist/*
