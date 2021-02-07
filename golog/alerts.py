@@ -12,7 +12,10 @@ Author: Lorenzo Coacci
 # import basic
 from .log import (
     warning_print,
-    error_print
+    error_print,
+    RED,
+    YELLOW,
+    WHITE
 )
 # to manage slack API
 from slack import WebClient
