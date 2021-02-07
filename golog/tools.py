@@ -12,7 +12,9 @@ Author: Lorenzo Coacci
 # + + + + + Libraries + + + + +
 # import decoratos
 from .log import (
-    warning_print
+    warning_print,
+    nocrash_return,
+    sev
 )
 # to count occurences
 from collections import Counter
