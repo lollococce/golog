@@ -124,10 +124,10 @@ def correct_filepath(string, slash_remove=False):
     """RETURN : The file path with '/' at the end
     if the developer/user forgot it or viceversa"""
     if slash_remove:
-        string = str(string) + '/' if string[-1] != '/' else str(string)[:-1]
+        new_string = str(string) + '/' if string[-1] != '/' else str(string)[:-1]
     else:
-        string = str(string) + '/' if string[-1] != '/' else string
-    return string
+        new_string = str(string) + '/' if string[-1] != '/' else string
+    return new_string
 
 
 @nocrash_return
