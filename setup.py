@@ -10,7 +10,7 @@ with open('LICENSE') as f:
 
 setup(
     name="golog",
-    version="0.5.0",
+    version="0.5.1",
     author="Lorenzo Coacci",
     author_email="lorenzo@coacci.it",
     description="The package contains some useful general functions for logging, monitoring and more.",
