@@ -55,7 +55,8 @@ from .log import (
     new_lines,
     input_color,
     ask_input_int,
-    ask_input_login
+    ask_input_login,
+    ask_password
 )
 from .alerts import (
     Slack,
