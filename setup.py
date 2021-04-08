@@ -25,7 +25,6 @@ setup(
         'pytest',
         'twine',
         'sphinx_rtd_theme',
-        'sphinx',
         'termcolor',
         'alive_progress',
         'twilio',
